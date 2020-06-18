@@ -1,9 +1,14 @@
 <%- include('./partials/header.ejs') %> 
 
-<div class="jumbotron">
-    <h1>Login Demo</h1>
-    <p>This is a login demo using the Passport JS module</p>
-  </div>
 
+<div class="jumbotron">
+  <% if (locals.user) { %>
+  <h1 id="welcome-message">Welcome <%= user.username %></h1>
+  <h5>This is the index page</h5>
+  <% } else { %>
+  <h1 id="welcome-message">Welcome Unknown User</h1>
+  <h5><a href="/login">login</a> or <a href="/signup">signup</a></h5>
+  <% } %>
+</div>
 </body>
 </html>

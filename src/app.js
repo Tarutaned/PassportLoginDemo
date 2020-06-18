@@ -1,12 +1,7 @@
 const express       = require('express')
-const http          = require('http')
-const path          = require('path')
 const flash         = require('connect-flash')
 const session       = require('express-session')
 const MongoStore    = require('connect-mongo')(session)
-const FileStore     = require('session-file-store')(session);
-const passport      = require('passport')
-
 
 const mongoose = require('mongoose')
 const validator = require('validator')
@@ -14,7 +9,7 @@ const validator = require('validator')
 // ===========================================================
 // Mongoose Connection
 // Should be placed into an external file
-// Moving to an exteranl file breaks the session mongoose.connection
+// Moving to an exteranl file breaks the express-session mongoose.connection
 // ===========================================================
 const connectionURL = process.env.MONGODB_URL
 console.log("[+] Mongo URL: " + connectionURL)
@@ -52,13 +47,10 @@ app.set("view engine", "ejs")                   // set the view engine
 app.use(express.json())                         // parse JSON bodies that are sent by API cliens
 app.use(express.urlencoded({ extended: true })) // parse URL-encoded bodies sent by HTML forms
 
-// ===========================================================
-// Setup Passport JS
-// ===========================================================
+// Setup Passport
+const passport = require('passport')
 app.use(passport.initialize())
 app.use(passport.session())
-
-
 
 
 // ===========================================================

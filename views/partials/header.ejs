@@ -14,23 +14,30 @@
     </style>
 </head>
 <body>
+
+  <!-- Navigation Menu -->
 <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <!-- Brand -->
-        <a class="navbar-brand" href="/">Demo</a>
-        <ul class="navbar-nav">
-        <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Menu
-            </a>
-            <div class="dropdown-menu">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Passport JS Demo</a>
+      <ul class="navbar-nav">
+      <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Menu
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/">Index</a>
+            <% if (locals.user) { %>
+              <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            <% } else { %>  
               <a class="dropdown-item" href="/login">Login</a>
               <a class="dropdown-item" href="/signup">Signup</a>
-              <a class="dropdown-item" href="/profile">Profile</a>
-              <a class="dropdown-item" href="/sessionInfo">Debug Session Info</a>
-            </div>
-          </li>
-        </ul>
-      </nav> 
+            <% } %>
+            
+          </div>
+        </li>
+      </ul>
+    </nav> 
 </div>

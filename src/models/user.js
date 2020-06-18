@@ -9,14 +9,25 @@ const Task = require('./customer')
 // Create Schema
 // ==========================================================
 const userSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
         required: true,
+        trim: true,
+        lowercase: true,
+    },
+    firstname: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    lastname: {
+        type: String,
+        required: false,
         trim: true
     },
     password: {
         type: String,
-        required: true,
+        required: false,
         trip: true,
         minlenght: 8,
         validate(value) {
@@ -31,7 +42,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        required: true,
+        required: false,
         trim: true,
         lowercase: true,
         validate(value) {
