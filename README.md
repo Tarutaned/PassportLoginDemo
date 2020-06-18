@@ -8,14 +8,7 @@ git pull
 npm i
 ```
 
-
-## Usage
-
-```
-npm run dev
-```
-
-## dev.env
+## Environment Variable File
 Create a file in the "config" folder.
 Name the file "dev.env"
 ```
@@ -28,6 +21,13 @@ LDAP_bindCredentials=YourSecretPassowrd
 LDAP_searchBase='DC=TheTopLevelofYourDomain,DC=com'
 LDAP_searchFilter='(sAMAccountName={{username}})'
 ```
+
+## Usage
+Once npm packages are installed and the .env file is created, you can run the development environment with: 
+```
+npm run dev
+```
+
 
 
 ## License
